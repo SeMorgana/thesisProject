@@ -1,2 +1,2 @@
 # thesisProject
-some code used in thesis project, mostly used for analysing/visualizing data.
+Some code used in thesis project, all start with `main.py`
