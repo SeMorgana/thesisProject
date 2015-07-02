@@ -70,6 +70,7 @@ def main():
 
 
 
+    '''
     #test cases
     #as_ = ases[0]
     as_ = find_as("28929", ases)[0]
@@ -90,6 +91,7 @@ def main():
     #print t2
     #print t4
     #validate(ases)
+    '''
 
     ###########################
     #drawing for analysis part#
@@ -123,7 +125,7 @@ def main():
     #drawa2.draw_cdf_JI_lg_level(ases,TYPE) 
     #drawa2.draw_cdf_JI_lg_level(ases,TIER) 
 
-    drawa2.draw_cdf_JI_prefix_level(ases, TYPE) 
+    #drawa2.draw_cdf_JI_prefix_level(ases, TYPE) 
     #drawa2.draw_cdf_JI_prefix_level(ases, TIER) 
 
 
@@ -141,52 +143,6 @@ def main():
     #drawa2.draw_avg_geo_as_dist(ases, d_prefix_lat_lon, ASDIST)
 
 
-    #for checking particular LGs for Figure 8 - Figure 11
-    '''
-    as_ = find_as("8402",ases)[0]
-    for lg_ in sorted(getattr(as_,LGS),key=lambda x: len(getattr(x,NEI_SET)[0]), reverse=True):
-        print ''
-        print lg_,getattr(lg_, NUM_REL)
-        print "unknown:", getattr(lg_,LIST_PREFIX)[1]
-        print "c2p:", getattr(lg_,LIST_PREFIX)[2]
-        print "p2c:", getattr(lg_,LIST_PREFIX)[3]
-        print "p2p:", getattr(lg_,LIST_PREFIX)[4]
-        print ''
-    '''
-
-    '''
-    slg = set()
-    sas = set()
-    for i,as_ in enumerate(ases):
-        print i
-        for lg_ in as_.get_attr(LGS):
-            lg_.update_prefix_as_path()
-            for p in lg_.get_prefixes():
-                ap = lg_.get_as_paths(p)
-                if len(ap) >= 2:
-                    sas.add(as_)
-                    slg.add(lg_)
-                    #print lg_.get_attr(ID),len(ap)
-            lg_.release()
-    print len(slg),len(sas)
-    '''
-
-    '''
-    #print ASes' info
-    tmp = sorted(ases, key = lambda x:x.get_attr(INFO)[1])
-    for a in tmp:
-        info = a.get_attr(INFO)
-        name = info[0]
-        type_ = info[1]
-        tier = info[2]
-        asn = a.get_attr(ASN)
-        num_lgs = len(a)
-        print "%s,%s,%s,%s,%s" % (asn,name,num_lgs,type_,tier)
-    '''
-
-
-
-        
 
 def validate(ases):
     for as_ in ases:
